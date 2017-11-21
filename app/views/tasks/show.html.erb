@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="top-part">
+    <h1><%= @task.title %></h1>
+    <%= link_to "edit a task", task_edit_path %>
+  </div>
+  <div class="details">
+    <p><%= @task.details %></p>
+  </div>
+  <% if @task.completed == true %>
+    <i class="fa fa-check-square" aria-hidden="true">  This tasks is completed</i>
+  <% else %>
+    <i class="fa fa-square-o" aria-hidden="true">  This task is not completed</i>
+  <% end %>
+  <p class="spacing">
+  <%= link_to "Back to list", tasks_path %>
+  </p>
+</div>
+
+

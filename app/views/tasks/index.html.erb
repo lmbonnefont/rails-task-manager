@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <h1>My Tasks</h1>
+  <div class="spacingtasks">
+    <% @tasks.each do |t| %>
+    <% if t.completed == true %>
+          <li style="list-style-type:none">
+            <i class="fa fa-check-square" aria-hidden="true"></i>
+            <%= link_to "#{t.title}", task_path(t) %>
+            <%= link_to "Delete", task_path(t),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+          </li>
+    <% else %>
+          <li style="list-style-type:none">
+            <i class="fa fa-square-o" aria-hidden="true"></i>
+            <%= link_to "#{t.title}", task_path(t) %>
+            <%= link_to "Delete", task_path(t),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+
+          </li>
+    <% end %>
+
+    <% end %>
+  </div>
+
+  <%= link_to "Create a new task", tasks_new_path  %>
+
+</div>
+
